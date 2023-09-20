@@ -64,7 +64,7 @@ class Place(BaseModel, Base):
 
         @property
         def amenities(self):
-            """Getter"""
+            """Getter docuemnt"""
             from models import storage
             amenitiesList = []
             amenitiesAll = storage.all(Amenity)
@@ -72,10 +72,10 @@ class Place(BaseModel, Base):
                 if amenity.id in self.amenity_ids:
                     amenitiesList.append(amenity)
             return amenitiesList
-        
+
         @property
         def reviews(self):
-            """Getter"""
+            """Getter document"""
             from models import storage
             reviewsList = []
             reviewsAll = storage.all(Review)
@@ -86,7 +86,6 @@ class Place(BaseModel, Base):
 
         @amenities.setter
         def amenities(self, amenity):
-            """Setter"""
+            """Setter document"""
             if isinstance(amenity, Amenity):
-                self.amenity_ids.append(amenity.id)
-        
+                self.amenity_ids.append(amenity.id) 

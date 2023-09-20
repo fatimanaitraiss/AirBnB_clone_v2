@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""this module defines a class to manage file storage for hbnb clone"""
+"""This module defines a class to manage file storage for hbnb clone"""
 from models.user import User
 from models.place import Place
 from models.state import State
@@ -9,7 +9,6 @@ from models.review import Review
 from models.base_model import Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
-from sqlalchemy.exc import IntegrityError, OperationalError
 from os import getenv
 
 
@@ -36,6 +35,7 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def reload(self):
+        """ reload method """
         Base.metadata.create_all(self.__engine)
         Session = scoped_session(
             sessionmaker(bind=self.__engine, expire_on_commit=False)
